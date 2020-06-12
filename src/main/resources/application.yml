@@ -1,9 +1,22 @@
+#######################################################################
+## Informações do desenvolvedor:                                     ##
+## Dev: Leandro Shiniti Tacara                                       ##
+## Email: leandro.tacara@hotmail.com                                 ##
+## Github: https://github.com/Lehhh                                  ##
+## Linkedin: https://www.linkedin.com/in/leandro-shiniti-tacara/     ##
+## Data: 12/06/2020 19:18                                            ##
+## projeto: Curso                                                    ##
+#######################################################################
 spring:
   profiles:
     active: prod
 ---
 spring:
   profiles: dev
+  datasource:
+    username:
+    password:
+    uri
 env: dev-test
 ---
 spring:
