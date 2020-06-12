@@ -1,0 +1,16 @@
+spring:
+  profiles:
+    active: prod
+---
+spring:
+  profiles: dev
+env: dev-test
+---
+spring:
+  profiles: stage
+env: stage-test
+---
+spring:
+  profiles: prod
+env: prod-test
+---
