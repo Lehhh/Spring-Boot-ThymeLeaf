@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.HashMap;
 import java.util.Map;
 
-@Controller
+@Controller(value = "/")
 public class HomeController {
 
-    @GetMapping("/")
-    public ResponseEntity<?> home(){
+    @GetMapping("/homejson")
+    public ResponseEntity<?> homeJson(){
         HttpHeaders headers = new HttpHeaders();
         headers.add("Contenty-type", "application/json");
 
@@ -22,5 +22,16 @@ public class HomeController {
 
         return new ResponseEntity<>(
                 map, headers, HttpStatus.OK);
+    }
+
+    @GetMapping("/")
+    public String home(){
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.add("Contenty-type", "application/json");
+
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("message", "Hello World");
+
+        return "home.html";
     }
 }
