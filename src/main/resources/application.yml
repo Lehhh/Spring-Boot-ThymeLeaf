@@ -9,21 +9,47 @@
 #######################################################################
 spring:
   profiles:
-    active: prod
+    active: dev
 ---
 spring:
   profiles: dev
   datasource:
-    username:
-    password:
-    uri
+    driverClassName: org.postgresql.Driver
+    username: postgres
+    password: root
+    url: jdbc:postgresql://localhost:5432/mvc_dev
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    open-in-view: true
 env: dev-test
 ---
 spring:
   profiles: stage
+  datasource:
+    driverClassName: org.postgresql.Driver
+    username: postgres
+    password: root
+    url: jdbc:postgresql://localhost:5432/mvc_stage
+  jpa:
+    hibernate.ddl-auto: update
+    show-sql: true
+    open-in-view: true
 env: stage-test
 ---
 spring:
   profiles: prod
+  datasource:
+    driverClassName: org.postgresql.Driver
+    username: postgres
+    password: root
+    url: jdbc:postgresql://localhost:5432/mvc_prod
+  jpa:
+    dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: true
 env: prod-test
 ---
